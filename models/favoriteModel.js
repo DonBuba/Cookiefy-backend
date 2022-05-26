@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement:true
         },
         idUsuario: {
-            type: DataTypes.TEXT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         idReceta: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true
         }
     })
