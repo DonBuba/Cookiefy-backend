@@ -32,6 +32,8 @@ router.get('/getAllRecipes', recipeController.getAllRecipes)
 
 router.get('/getOneRecipe/:id', recipeController.getOneRecipe)
 
+router.get('/getRecipeByName/:titulo', recipeController.getRecipeByName)
+
 router.get('/getRecipeByUser/:id', recipeController.getRecipesByUser)
 
 router.get('/getRecipeByCategory/:id', recipeController.getRecipesByCategory)

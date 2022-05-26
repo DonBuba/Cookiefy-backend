@@ -28,7 +28,7 @@ const addRecipe =  async (req, res) => {
         dificultad: req.body.dificultad,
         tiempo: req.body.tiempo,
         comensales: req.body.comensales,
-        imagen: req.body.file.path,
+        imagen: req.body.imagen,
     }
     console.log(req.file)
     const receta = await Receta.create(data)
@@ -94,6 +94,14 @@ const getRecipesByCategory = async (req, res )=>{
     res.status(200).send(receta)
 }
 
+//9. Obtener las recetas por nombre
+
+const getRecipeByName = async(req,res)=>{
+    let titulo= req.params.titulo
+    let receta = await Receta.findOne({where:{titulo:titulo}})
+    res.status(200).send(receta)
+}
+
 //7. Controlador de subida de imagen
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -129,5 +137,6 @@ module.exports = {
     upload,
     storage,
     getRecipesByUser,
-    getRecipesByCategory
+    getRecipesByCategory,
+    getRecipeByName
 }

@@ -20,7 +20,7 @@ const addCategory = async (req, res) => {
     let data = {
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
-        imagen: req.file.path,
+        imagen: req.body.imagen,
     }
 
     const categoria = await Categoria.create(data)
