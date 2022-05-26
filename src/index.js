@@ -31,7 +31,7 @@ app.use(cors(corsOpts))
 
 const router = require('../routes/mainRouter.js')
 
-app.use('/api',router);
+app.use('',router);
 
 //tersting api 
 
