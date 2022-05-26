@@ -50,10 +50,14 @@ db.favoritos = require('./favoriteModel.js')(sequelize,DataTypes)
 //Uusario a Recetas
 
 db.usuarios.hasMany(db.recetas,{
-    foreignKey:'id'
+    foreignKey:'id',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 db.recetas.belongsTo(db.usuarios,{
-    foreignKey:'idCreador'
+    foreignKey:'idCreador',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 //Usuarios y Recetas con Comentarios
@@ -65,6 +69,8 @@ db.recetas.belongsTo(db.usuarios,{
 
 db.comentarios.belongsTo(db.usuarios,{
     foreignKey:'idUsuario',
+    onDelete: 'CASCADE',
+  onUpdate: 'CASCADE '
 })
 
 // db.recetas.hasMany(db.comentarios,{
@@ -74,32 +80,44 @@ db.comentarios.belongsTo(db.usuarios,{
 
 db.comentarios.belongsTo(db.recetas,{
     foreignKey:'idReceta',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 //Relación de noticas con usuarios
 
 db.noticias.belongsTo(db.usuarios,{
-    foreignKey:'idCreador'
+    foreignKey:'idCreador',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 //Reclación recetas con categorías
 
 db.categorias.hasOne(db.recetas,{
-    foreignKey:'id'
+    foreignKey:'id',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 db.recetas.belongsTo(db.categorias,{
-    foreignKey:'id'
+    foreignKey:'id',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 //Relación de favoritos con Usuario y Recetas
 
 db.favoritos.belongsTo(db.usuarios,{
-    foreignKey:'idUsuario'
+    foreignKey:'idUsuario',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 db.favoritos.belongsTo(db.recetas,{
-    foreignKey:'idReceta'
+    foreignKey:'idReceta',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE '
 })
 
 
