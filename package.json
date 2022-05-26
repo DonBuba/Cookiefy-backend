@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js",
-    "start":"npm src/index.js"
+    "start": "node src/index.js"  
   },
   "keywords": [
     "node",
@@ -16,6 +15,7 @@
   "author": "Boubacar",
   "license": "ISC",
   "dependencies": {
+    "@mysql/xdevapi": "^8.0.29",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",

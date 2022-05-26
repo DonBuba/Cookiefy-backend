@@ -1,16 +1,15 @@
 const dbConfig = require('../config/dbConfig.js')
-
 const  {Sequelize, DataTypes} = require('sequelize')
+
 
 const sequelize = new Sequelize (
     dbConfig.db,
     dbConfig.user,
     dbConfig.password,
-    dbConfig.port,
     {
         host: dbConfig.host,
-        operatorAliases: false,
         dialect:dbConfig.dialect,
+        operatorAliases: false,
         define: {
             timestamps: false
         },
