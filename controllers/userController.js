@@ -55,7 +55,7 @@ const getOneUser = async (req, res )=>{
 //4. Actualizar un usuario
 const updateUser = async (req, res )=>{
     
-    let id = req.params.idUsuario
+    let id = req.params.id 
     let userAntiguo = await User.findOne({where: {id:id}})
     let user = await User.update(req.body, {where: {id : id}})
     res.status(200).send(`Se ha acutalizado el usuario ${userAntiguo.username} correctamente`)
