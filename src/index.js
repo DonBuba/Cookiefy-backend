@@ -6,8 +6,16 @@ const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
 
+const whitelist = ['https://cookiefy.vercel.app', 'https://cookiefy-back.herokuapp.com']
+
 const corsOpts = {
-    origin: '*',
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   
     methods: [
       'GET',
@@ -20,20 +28,7 @@ const corsOpts = {
   };
 
 //Middlewares 
-app.use(function (req, res, next) {
 
-  var allowedDomains = ['https://cookiefy.vercel.app'];
-  var origin = req.headers.origin;
-  if(allowedDomains.indexOf(origin) > -1){
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Accept');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-
-  next();
-})
 
 app.use(bodyParser.json())
 
