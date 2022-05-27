@@ -58,7 +58,7 @@ const updateRecipe = async (req, res )=>{
     let id = req.params.id 
     let recetaAntigua = await Receta.findOne({where: {id:id}})
     let receta = await Receta.update(req.body, {where: {id : id}})
-    res.status(200).send(`Se ha acutalizado la receta "${recetaAntigua.titulo}" correctamente`)
+    res.status(200).json(`Se ha acutalizado la receta "${recetaAntigua.titulo}" correctamente`)
 }
 
 //5. Borrar una receta
@@ -67,7 +67,7 @@ const deleteRecipe = async (req, res )=>{
     let id = req.params.id
     let recetaAntigua = await Receta.findOne({where: {id:id}})
     let receta = await Receta.destroy({where: {id : id}})
-    res.status(200).send(`Se ha eliminado la receta "${recetaAntigua.titulo}" correctamente`)
+    res.status(200).json(`Se ha eliminado la receta "${recetaAntigua.titulo}" correctamente`)
 }
 
 

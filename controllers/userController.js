@@ -58,7 +58,7 @@ const updateUser = async (req, res )=>{
     let id = req.params.id 
     let userAntiguo = await User.findOne({where: {id:id}})
     let user = await User.update(req.body, {where: {id : id}})
-    res.status(200).send(`Se ha acutalizado el usuario ${userAntiguo.username} correctamente`)
+    res.status(200).json(`Se ha acutalizado el usuario ${userAntiguo.username} correctamente`)
 }
 
 //5. Borrar un usuario
@@ -67,7 +67,7 @@ const deleteUser = async (req, res )=>{
     let id = req.params.id
     let userAntiguo = await User.findOne({where: {id:id}})
     let user = await User.destroy({where: {id : id}})
-    res.status(200).send(`Se ha eliminado el usuario ${userAntiguo.username} correctamente`)
+    res.status(200).json(`Se ha eliminado el usuario ${userAntiguo.username} correctamente`)
 }
 
 //6. Login
@@ -78,7 +78,7 @@ const login = async ( req, res ) => {
         where:{email:email}
     }).then( user => {
         if(!user){
-            res.stauts(404).send('El usuario introducido no se ha encontrado')
+            res.stauts(404).json('El usuario introducido no se ha encontrado')
         }else{
             if(bcrypt.compareSync(contrasenia, user.contrasenia)){
                 //devolvemos el tokken

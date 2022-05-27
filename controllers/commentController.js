@@ -43,7 +43,7 @@ const updateComment = async (req, res )=>{
     
     let id = req.params.id 
     let comment = await Comentario.update(req.body, {where: {idComentario : id}})
-    res.status(200).send(`Se ha actualizado el comentario correctamente`)
+    res.status(200).json(`Se ha actualizado el comentario correctamente`)
 }
 
 //5. Borrar una receta
@@ -51,7 +51,7 @@ const deleteComment = async (req, res )=>{
     
     let id = req.params.id
     let comment = await Comentario.destroy({where: {idComentario : id}})
-    res.status(200).send(`Se ha eliminado el comentario correctamente`)
+    res.status(200).json(`Se ha eliminado el comentario correctamente`)
 }
 
 

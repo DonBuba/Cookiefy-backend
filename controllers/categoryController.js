@@ -49,7 +49,7 @@ const updateCategory = async (req, res )=>{
     let id = req.params.id 
     let categoriaAntigua = await Categoria.findOne({where: {id:id}})
     let categoria = await Categoria.update(req.body, {where: {id : id}})
-    res.status(200).send(`Se ha acutalizado la categoria "${categoriaAntigua.nombre}" correctamente`)
+    res.status(200).json(`Se ha acutalizado la categoria "${categoriaAntigua.nombre}" correctamente`)
 }
 
 //5. Borrar una receta
@@ -58,7 +58,7 @@ const deleteCategory = async (req, res )=>{
     let id = req.params.id
     let categoriaAntigua = await Categoria.findOne({where: {id:id}})
     let categoria = await Categoria.destroy({where: {id : id}})
-    res.status(200).send(`Se ha eliminado la categoria "${categoriaAntigua.nombre}" correctamente`)
+    res.status(200).json(`Se ha eliminado la categoria "${categoriaAntigua.nombre}" correctamente`)
 }
 
 

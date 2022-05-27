@@ -37,7 +37,7 @@ const deleteFavorite = async (req, res )=>{
     
     let id = req.params.id
     let favorito = await Favorito.destroy({where: {id : id}})
-    res.status(200).send(`Se ha eliminado el favorito correctamente`)
+    res.status(200).json(`Se ha eliminado el favorito correctamente`)
 }
 
 //4. Obtener favoritos por Usuario
