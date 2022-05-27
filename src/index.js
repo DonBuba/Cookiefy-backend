@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
 
-const whitelist = ['https://cookiefy.vercel.app', 'https://cookiefy-back.herokuapp.com']
+const whitelist = ['https://cookiefy.vercel.app', 'https://cookiefy-back.herokuapp.com', 'https://heroku.com','https://vercel.com']
 
 const corsOpts = {
   origin: function (origin, callback) {
