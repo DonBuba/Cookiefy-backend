@@ -6,26 +6,20 @@ const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
 
-const whitelist = ['https://cookiefy.vercel.app', 'https://cookiefy-back.herokuapp.com', 'https://heroku.com','https://vercel.com']
+// const whitelist = ['https://cookiefy.vercel.app', 'https://cookiefy-back.herokuapp.com', 'https://heroku.com','https://vercel.com']
 
 const corsOpts = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
+  origin: '*',
   
-    methods: [
+  methods: [
       'GET',
       'POST',
-    ],
+  ],
   
-    allowedHeaders: [
+  allowedHeaders: [
       'Content-Type',
-    ],
-  };
+  ],
+};
 
 //Middlewares 
 
