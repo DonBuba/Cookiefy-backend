@@ -23,6 +23,7 @@ const addRecipe =  async (req, res) => {
         link: req.body.link,
         categoria: req.body.categoria,
         idCreador: req.body.idCreador ? req.body.idCreador : 1,
+        ingredientes:req.body.ingredientes,
         descripcion: req.body.descripcion,
         dificultad: req.body.dificultad,
         tiempo: req.body.tiempo,
