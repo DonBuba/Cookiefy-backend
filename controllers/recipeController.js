@@ -17,7 +17,6 @@ const Categoria  = db.categorias
 
 //1. Crear una receta
 const addRecipe =  async (req, res) => {
-    console.log(req.body)
     let data = {
         titulo: req.body.titulo,
         cuerpo: req.body.cuerpo,
@@ -30,7 +29,6 @@ const addRecipe =  async (req, res) => {
         comensales: req.body.comensales,
         imagen: req.body.imagen,
     }
-    console.log(req.file)
     const receta = await Receta.create(data)
     res.status(200).send(receta)
 }
@@ -39,7 +37,6 @@ const addRecipe =  async (req, res) => {
 const getAllRecipes = async (req, res )=>{
     
     let recetas = await Receta.findAll({})
-    console.log(recetas);
     res.status(200).send(recetas)
 }
 
