@@ -102,9 +102,9 @@ db.noticias.belongsTo(db.usuarios,{
 // })
 
 db.recetas.belongsTo(db.categorias,{
-    foreignKey:'id',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE '
+    foreignKey:'categoria',
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT '
 })
 
 //Relación de favoritos con Usuario y Recetas
