@@ -95,11 +95,11 @@ db.noticias.belongsTo(db.usuarios,{
 
 //Reclación recetas con categorías
 
-db.categorias.hasOne(db.recetas,{
-    foreignKey:'id',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE '
-})
+// db.categorias.hasOne(db.recetas,{
+//     foreignKey:'id',
+//     onDelete: 'CASCADE',
+//     onUpdate: 'CASCADE '
+// })
 
 db.recetas.belongsTo(db.categorias,{
     foreignKey:'id',
