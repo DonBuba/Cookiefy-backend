@@ -55,17 +55,17 @@ db.usuarios.hasMany(db.recetas,{
     onUpdate: 'CASCADE'
 })
 
-db.recetas.belongsTo(db.usuarios,{
-    foreignKey:'idCreador',
-    onDelete: 'RESTRICT',
-    onUpdate: 'RESTRICT'
-})
+// db.recetas.belongsTo(db.usuarios,{
+//     foreignKey:'idCreador',
+//     onDelete: 'RESTRICT',
+//     onUpdate: 'RESTRICT'
+// })
 
 //Usuarios y Recetas con Comentarios
 
 // db.usuarios.hasMany(db.comentarios,{
 //     foreignKey:'id'
-    
+
 // })
 
 db.comentarios.belongsTo(db.usuarios,{
@@ -76,7 +76,7 @@ db.comentarios.belongsTo(db.usuarios,{
 
 // db.recetas.hasMany(db.comentarios,{
 //     foreignKey:'id'
-    
+
 // })
 
 db.comentarios.belongsTo(db.recetas,{
