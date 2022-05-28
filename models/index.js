@@ -52,13 +52,13 @@ db.favoritos = require('./favoriteModel.js')(sequelize,DataTypes)
 db.usuarios.hasMany(db.recetas,{
     foreignKey:'id',
     onDelete: 'RESTRICT',
-    onUpdate: 'RESTRICT'
+    onUpdate: 'CASCADE'
 })
 
 db.recetas.belongsTo(db.usuarios,{
     foreignKey:'idCreador',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT'
 })
 
 //Usuarios y Recetas con Comentarios
