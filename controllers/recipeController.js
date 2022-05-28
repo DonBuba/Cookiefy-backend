@@ -33,7 +33,6 @@ const addRecipe =  async (req, res) => {
     console.log(req.file)
     const receta = await Receta.create(data)
     res.status(200).send(receta)
-    console.log(data)
 }
 
 //2. Obtener todas las recetas
